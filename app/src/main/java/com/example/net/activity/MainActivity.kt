@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         // Set up the ActionBar with the Navigation UI
         setupActionBarWithNavController(navController ?: return)
+        keyOfTheEncryption = stringFromJNI()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -45,5 +46,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         navController?.popBackStack()
+    }
+
+    external fun stringFromJNI(): String
+
+    companion object {
+        init {
+            System.loadLibrary("myapplication")
+        }
+        var keyOfTheEncryption: String = ""
     }
 }
