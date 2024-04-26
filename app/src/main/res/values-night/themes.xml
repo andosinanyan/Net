@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Net" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <item name="android:navigationBarColor">#08000000</item>
+        <item name="android:statusBarColor">#08000000</item>
+        <item name="colorPrimary">#08000000</item>
+        <item name="android:colorPrimary">#08000000</item>
+        <item name="android:colorPrimaryDark">#08000000</item>
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+    </style>
+</resources>

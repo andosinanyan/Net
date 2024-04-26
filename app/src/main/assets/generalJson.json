@@ -1,0 +1,89 @@
+{
+  "count": 10,
+  "correctsmin": 9,
+  "failcolor": "#FF3B30",
+  "succescolor": "#34C759",
+  "defaultcolor": "#000000",
+  "list": {
+    "1": "-",
+    "2": "-",
+    "3": "-",
+    "4": "-",
+    "5": "-",
+    "6": "-",
+    "7": "-",
+    "8": "-"
+  },
+  "list_of_answered_data" : [
+    {
+      "id" : "1",
+      "right" : "0",
+      "wrong" : "0"
+    },
+    {
+      "id" : "2",
+      "right" : "0",
+      "wrong" : "0"
+    },
+    {
+      "id" : "3",
+      "right" : "0",
+      "wrong" : "0"
+    },
+    {
+      "id" : "4",
+      "right" : "0",
+      "wrong" : "0"
+    },
+    {
+      "id" : "5",
+      "right" : "0",
+      "wrong" : "0"
+    },
+    {
+      "id" : "6",
+      "right" : "0",
+      "wrong" : "0"
+    },
+    {
+      "id" : "7",
+      "right" : "0",
+      "wrong" : "0"
+    },
+    {
+      "id" : "8",
+      "right" : "0",
+      "wrong" : "0"
+    }
+  ],
+  "submenu": [
+    {
+      "tag": "tests",
+      "text": "Թեստեր",
+      "icon": "no_image_yet",
+      "ifempty": "1",
+      "active": "1"
+    },
+    {
+      "tag": "exam",
+      "text": "Փորձնական քննություն",
+      "icon": "no_image_yet",
+      "ifempty": "1",
+      "active": "1"
+    },
+    {
+      "tag": "news",
+      "text": "Նորություններ",
+      "icon": "no_image_yet",
+      "ifempty": "1",
+      "active": "1"
+    }
+  ],
+    "resultsTried": "Պատասխանված հարցեր",
+    "Tried": "0",
+    "Allquestion": "82",
+    "Incorrects": "0",
+    "resultsCorrects": "Պատասխանել եք ճիշտ",
+    "Corrects": "0",
+    "resultsIncorrects": "Պատասխանել եք սխալ"
+}
