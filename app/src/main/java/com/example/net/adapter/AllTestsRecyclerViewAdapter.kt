@@ -18,14 +18,14 @@ class AllTestsRecyclerViewAdapter(
     RecyclerView.Adapter<AllTestsRecyclerViewAdapter.ViewHolder>() {
 
     private var testData: AllTestData? = null
-    private var testTitle = ""
+    private var testTitle = "Թեստ "
 
     inner class ViewHolder(val view: TestItemLayoutBinding) : RecyclerView.ViewHolder(view.root) {
         fun onBind(itemData: String, key: String) {
             view.run {
                 modifyBackground(itemData.isNotEmpty())
                 testIconImageView.setImageResource(R.drawable.test_icon)
-                titleTextView.text = "$testTitle $key"
+                titleTextView.text = "Թեստ $key"
                 countOfTestsTextView.text =  context.getString(R.string.test_total_count, testData?.count)
                 resultTextView.text = if(itemData == "0") "-" else itemData
                 checkAndSetResultTextColor(itemData)
