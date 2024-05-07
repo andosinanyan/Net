@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         init {
-            System.loadLibrary("myapplication")
+            System.loadLibrary("net")
         }
         var keyOfTheEncryption: String = ""
     }
