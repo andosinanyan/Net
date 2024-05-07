@@ -5,27 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="6dp"
-    android:layout_marginTop="6dp"
+    android:layout_marginTop="10dp"
     android:background="@drawable/test_item_background"
     android:maxHeight="105dp">
 
     <ImageView
         android:id="@+id/test_icon_image_view"
-        android:layout_width="26dp"
-        android:layout_height="29dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginHorizontal="38dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_height="29dp"
-        tools:layout_width="27dp"
+        tools:layout_height="40dp"
+        tools:layout_width="40dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/title_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="12dp"
         android:textColor="#000000"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -37,7 +37,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:layout_marginBottom="13dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"

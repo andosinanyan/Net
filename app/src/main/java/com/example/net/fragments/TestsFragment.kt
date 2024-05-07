@@ -52,7 +52,7 @@ class TestsFragment : Fragment() {
             }
         }
         viewBinding?.run {
-            allTestRecyclerView.layoutManager = GridLayoutManager(context, 2)
+            allTestRecyclerView.layoutManager = GridLayoutManager(context, 1)
             allTestRecyclerView.adapter = adapter
         }
 
