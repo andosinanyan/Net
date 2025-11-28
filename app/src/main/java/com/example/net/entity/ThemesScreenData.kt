@@ -1,8 +1,10 @@
 package com.example.net.entity
 
 
+import com.example.net.GenerateJsonSchema
 import com.google.gson.annotations.SerializedName
 
+@GenerateJsonSchema
 data class ThemesScreenData(
     @SerializedName("submenu")
     val subMenuItemEntity: List<SubMenuEntity>,
@@ -31,6 +33,7 @@ data class ThemesScreenData(
     @SerializedName("questions") val questionsText : String,
     @SerializedName("device_changed")
     val deviceChanged: Int?
+
 )
 
 data class ThemesScreenGeneralSettingsData(

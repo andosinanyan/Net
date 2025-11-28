@@ -1,7 +1,9 @@
 package com.example.net.entity
 
+import com.example.net.GenerateJsonSchema
 import com.google.gson.annotations.SerializedName
 
+@GenerateJsonSchema
 data class AllTestData(
     @SerializedName("count") val count: Int,
     @SerializedName("correctsmin") val minimumCorrectsCount: Int,
