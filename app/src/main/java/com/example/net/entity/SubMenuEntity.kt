@@ -12,5 +12,6 @@ data class SubMenuEntity(
 
 enum class ThemesSubMenuTypes(val value: String) {
     TESTS("tests"),
-    EXAM("exam")
+    EXAM("exam"),
+    MEDIA_EDUCATION("social_engineering")
 }

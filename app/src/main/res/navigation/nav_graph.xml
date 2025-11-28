@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_firstScreenFragment_to_questionsScreenFragment"
             app:destination="@id/questionsScreenFragment" />
+        <action
+            android:id="@+id/action_firstScreenFragment_to_socialEngineering"
+            app:destination="@id/socialEngineering" />
     </fragment>
     <fragment
         android:id="@+id/questionsScreenFragment"
@@ -24,4 +27,8 @@
             android:id="@+id/action_testsFragment_to_questionsScreenFragment"
             app:destination="@id/questionsScreenFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/socialEngineering"
+        android:name="com.example.net.fragments.SocialEngineering"
+        android:label="SocialEngineering" />
 </navigation>

@@ -19,7 +19,7 @@ import com.example.net.popup.TestFinishDialog
 import com.example.net.viewmodel.QuestionsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class QuestionsScreenFragment : Fragment() {
+class QuestionsScreenFragment(private val openedFromCyber: Boolean = false, private val clickedOnHintCallBack: ((Int, Int) -> Unit)? = null,) : Fragment() {
 
     private var binding: QuestionsScreenFragmentBinding? = null
     private val viewModel: QuestionsViewModel by viewModel()
@@ -49,7 +49,7 @@ class QuestionsScreenFragment : Fragment() {
             (activity as AppCompatActivity).supportActionBar?.title =
                 "Թեստ ${testId?.toInt()?.plus(1)}"
         } else {
-            (activity as AppCompatActivity).supportActionBar?.title = "Փորձնական քննություն"
+            (activity as AppCompatActivity).supportActionBar?.title = "Թվային գրագիտություն"
         }
     }
 
@@ -81,7 +81,7 @@ class QuestionsScreenFragment : Fragment() {
         }
 
         binding?.questionsRecyclerView?.run {
-            questionViewAdapter = QuestionAdapter(context, ::changeCountOfNumber)
+            questionViewAdapter = QuestionAdapter(context, openedCyberSecurity = openedFromCyber, ::changeCountOfNumber, ::clickedOnHint)
             this.adapter = questionViewAdapter
             layoutManager = NoScrollLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             val pager = PagerSnapHelper()
@@ -111,6 +111,10 @@ class QuestionsScreenFragment : Fragment() {
                 ) ?: return@setOnClickListener
             )
         }
+    }
+
+    private fun clickedOnHint(startIndex: Int, endIndex: Int) {
+        clickedOnHintCallBack?.invoke(startIndex, endIndex)
     }
 
     private fun finishTest() {

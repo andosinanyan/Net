@@ -35,7 +35,6 @@ class FirstScreenFragment : Fragment() {
             initResultViews(it)
         }
 
-
         viewModel.getScreenData()
     }
 
@@ -100,6 +99,10 @@ class FirstScreenFragment : Fragment() {
 
             ThemesSubMenuTypes.EXAM.value -> {
                 R.id.action_firstScreenFragment_to_questionsScreenFragment
+            }
+
+            ThemesSubMenuTypes.MEDIA_EDUCATION.value -> {
+                R.id.action_firstScreenFragment_to_socialEngineering
             }
 
             else -> {

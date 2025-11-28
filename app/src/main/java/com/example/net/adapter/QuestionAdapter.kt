@@ -13,7 +13,9 @@ import com.example.net.view.QuestionVariantView
 
 class QuestionAdapter(
     val context: Context,
-    val clickedOnForwardOrBack: (Int) -> Unit
+    val openedCyberSecurity: Boolean = false,
+    val clickedOnForwardOrBack: (Int) -> Unit,
+    val clickedOnHint: (Int, Int) -> Unit
 ) :
     RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
 
@@ -28,6 +30,8 @@ class QuestionAdapter(
     class ViewHolder(
         private val viewBinding: SingleQuestionViewBinding,
         private val context: Context,
+        private val clickedOnHint: (Int, Int) -> Unit,
+        private val openedCyberSecurity: Boolean = false,
         private val alreadyAnsweredQuestionsList: MutableMap<Int, SingleQuestionItem>
     ) :
         RecyclerView.ViewHolder(viewBinding.root) {
@@ -39,7 +43,17 @@ class QuestionAdapter(
         fun onBind(singleQuestionItem: SingleQuestionItem) {
             viewBinding.run {
                 questionTextView.text = singleQuestionItem.question
-
+                if (openedCyberSecurity) {
+                    viewBinding.hintButton.visibility = View.VISIBLE
+                    viewBinding.hintButton.setOnClickListener {
+                        clickedOnHint(
+                            singleQuestionItem.hintSeconds?.first() ?: return@setOnClickListener,
+                            singleQuestionItem.hintSeconds?.last() ?: return@setOnClickListener
+                        )
+                    }
+                } else {
+                    viewBinding.hintButton.visibility = View.GONE
+                }
                 val listOfVariantsView = mutableSetOf<QuestionVariantView>()
                 singleQuestionItem.variantsList.forEach { variantOfQuestion ->
                     val questionVariantView = QuestionVariantView(context = context)
@@ -101,7 +115,9 @@ class QuestionAdapter(
         return ViewHolder(
             viewBinding = view,
             context = context,
-            alreadyAnsweredQuestionsList = alreadyAnsweredQuestionsList
+            alreadyAnsweredQuestionsList = alreadyAnsweredQuestionsList,
+            clickedOnHint = clickedOnHint,
+            openedCyberSecurity = openedCyberSecurity
         )
     }
 

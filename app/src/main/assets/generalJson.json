@@ -72,6 +72,13 @@
       "active": "1"
     },
     {
+      "tag": "social_engineering",
+      "text": "Թվային գրագիտություն",
+      "icon": "no_image_yet",
+      "ifempty": "1",
+      "active": "1"
+    },
+    {
       "tag": "news",
       "text": "Նորություններ",
       "icon": "no_image_yet",

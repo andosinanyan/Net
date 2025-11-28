@@ -16,6 +16,10 @@ data class SingleQuestionItem(
     val question: String,
     @SerializedName("variant")
     val variantsList: List<String>,
+    @SerializedName("seconds")
+    var hintSeconds: List<Int>? = null,
+    @SerializedName("explanation")
+    var explanation: String? = null,
     var chosenVariantIndex: Int? = null,
     val rightVariantIndex: Int,
     var isAnsweredRight: Boolean
@@ -30,7 +34,8 @@ val listOfThemesIndex = mutableListOf(
     40 to 50,
     50 to 60,
     60 to 70,
-    70 to 82
+    70 to 82,
+    82 to 92
 )
 
 fun Context.getData(fileName: String): String {

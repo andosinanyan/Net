@@ -27,7 +27,7 @@ class QuestionsViewModel(
 
     fun getQuestionsById() {
         viewModelScope.launch {
-            repo.getExamQuestions().let {
+            repo.getThemeQuestionsById("8").let {
                 _questionsListLiveData.postValue(it)
             }
         }

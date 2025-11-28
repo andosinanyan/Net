@@ -62,14 +62,14 @@ inline fun <reified T> mockData(json: String): T {
     return Gson().fromJson(json, myType)
 }
 
-inline fun <reified T> mockEncryptedData(json: String): T {
-    val myType = object : TypeToken<T>() {}.type
-    val finalJson = Gson().fromJson(json, JsonObject::class.java)?.run {
-        Test2.decryptAESFromBase64(
-            input = get("ciphertext").asString,
-            ivBase64 = get("iv").asString,
-            tagBase64 = get("tag").asString
-        )
-    }
-    return Gson().fromJson(finalJson, myType)
-}
+//inline fun <reified T> mockEncryptedData(json: String): T {
+//    val myType = object : TypeToken<T>() {}.type
+//    val finalJson = Gson().fromJson(json, JsonObject::class.java)?.run {
+//        Test2.decryptAESFromBase64(
+//            input = get("ciphertext").asString,
+//            ivBase64 = get("iv").asString,
+//            tagBase64 = get("tag").asString
+//        )
+//    }
+//    return Gson().fromJson(finalJson, myType)
+//}
