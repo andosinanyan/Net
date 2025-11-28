@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-}
+    id("org.jetbrains.kotlin.android")}
 
 android {
     namespace = "com.example.net"
@@ -21,6 +20,8 @@ android {
             }
         }
     }
+
+    // Source set removed as the file is in src/main/java
 
     buildTypes {
         release {
@@ -57,8 +58,6 @@ dependencies {
     val retrofitVersion = "2.9.0"
     val koinVersion = "3.5.3"
 
-
-
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
@@ -76,4 +75,28 @@ dependencies {
     implementation("io.insert-koin:koin-androidx-workmanager:$koinVersion")
     implementation("io.insert-koin:koin-androidx-navigation:$koinVersion")
 
+    implementation("androidx.media3:media3-exoplayer:1.3.1")
+    implementation("androidx.media3:media3-exoplayer-dash:1.3.1")
+    implementation("androidx.media3:media3-ui:1.3.1")
+}
+
+tasks.register<JavaExec>("runCiCdTest") {
+    group = "Verification"
+    description = "Runs the CiCdTest main function"
+    mainClass.set("com.example.net.CiCdTest")
+    dependsOn("compileDebugKotlin", "compileDebugJavaWithJavac")
+
+    doFirst {
+        val android = project.extensions.getByName("android") as com.android.build.gradle.AppExtension
+        val debugVariant = android.applicationVariants.find { it.name == "debug" }
+        
+        if (debugVariant != null) {
+            classpath = files(
+                project.layout.buildDirectory.dir("tmp/kotlin-classes/debug"),
+                debugVariant.javaCompileProvider.get().destinationDirectory,
+                debugVariant.runtimeConfiguration,
+                android.bootClasspath
+            )
+        }
+    }
 }
