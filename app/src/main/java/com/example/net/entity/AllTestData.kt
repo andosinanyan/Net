@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName
 @GenerateJsonSchema
 data class AllTestData(
     @SerializedName("count") val count: Int,
+    @SerializedName("title") val title: String,
     @SerializedName("correctsmin") val minimumCorrectsCount: Int,
     @SerializedName("failcolor") val testFailTextColor: String,
     @SerializedName("succescolor") val testSuccessTextColor: String,
