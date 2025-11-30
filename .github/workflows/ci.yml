@@ -20,5 +20,9 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Run Kotlin functions
-      run: ./gradlew runCiCdTest
+    - name: Run Kotlin functions with changed files
+      run: |
+        git fetch origin main
+        CHANGED_FILES=$(git diff --name-only origin/main...HEAD | tr '\n' ' ')
+        echo "Changed files: $CHANGED_FILES"
+        ./gradlew runCiCdTest --args="$CHANGED_FILES"
